@@ -1,0 +1,33 @@
+<html>
+<body>
+<div class="container">
+<h1> New / Update Member</h1>
+
+<form method="POST">
+  {% csrf_token %}
+{#   The site generates a unique token when it makes the form page. #}
+{#    his token is required to post/get data back to the server.#}
+
+      <label>Salutation</label> {{ form.salutation}} </br>
+      <label>First Name</label>  {{ form.first_name}} </br>
+      <label>Last Name</label>  {{ form.last_name }} </br>
+      <label>Email</label>  {{ form.email }} </br>
+  <button class="btn btn-default" type="submit">Save</button>
+  <button onclick="window.history.back();" class="btn btn-default" type="button">Cancel</button>
+
+{#Onclick” is a statement in Javascript to execute a function whenever an element (e.g., button) is clicked#}
+
+</form>
+
+  {% if member %}
+      <a class="btn btn-danger" href="{%url 'delete_member' member.id %}">Delete</a>
+  {%endif%}
+
+{## creat -> blank -> cannot delete#}
+{#so member -> true -> button appear#}
+{#unique id will be not changed#}
+
+</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</body>
+</html>

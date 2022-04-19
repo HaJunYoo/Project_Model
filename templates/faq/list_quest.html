@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Frequently Asked Questions</title>
+</head>
+<body>
+<ul>
+{#List all the questions from the DB#}
+
+    {%  for i in questions %}
+        <li> {{ i.question_text }}, {{ i.pub_date }}
+            <a href ="{%url 'list_choice' i.id %}" >Check Choice  </a></li>
+    {%  endfor %}
+
+{#Call the column based on the object i.#}
+{#Call the choices according to the ID.#}
+
+</ul>
+</body>
+</html>
